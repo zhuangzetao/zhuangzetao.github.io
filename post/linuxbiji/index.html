@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Linux笔记 # 1.常用的命令 # ● whereis 查询命令文件的位置
+● file 查看文件的类型
+● who 查看当前在线的用户
+● whoami 我是谁
+● pwd 我在那
+● uname -a 查看内核信息
+● echo 类似于 sout syso ，打印语句
+● clear 清屏
+● history 历史
+2.万事万物皆文件 # ● 文件系统：
+​	○ 操作系统如何管理文件，内部定义了一些规则或者定义
+● 所以在Linux中所有的东西都是以文件的方式进行操作
+● 在Linux中，文件的访问不和Window的一样。window依靠的是通过盘符进行访问
+● Linux维护着一个树状结构的文件模型
+​	○ 只有一个根节点 ,他的名字叫做 /
+​	○ 一个节点上可以有多个子节点
+● 查找文件的方式
+​	○ 相对路径
+​	■ 以当前路径为基准点，查找其他资源
+​	■ vi ../etc/sysconfig/network
+​	○ 绝对路径">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="Linux笔记 # 1.常用的命令 # ● whereis 查询命令文件的位置
+● file 查看文件的类型
+● who 查看当前在线的用户
+● whoami 我是谁
+● pwd 我在那
+● uname -a 查看内核信息
+● echo 类似于 sout syso ，打印语句
+● clear 清屏
+● history 历史
+2.万事万物皆文件 # ● 文件系统：
+​	○ 操作系统如何管理文件，内部定义了一些规则或者定义
+● 所以在Linux中所有的东西都是以文件的方式进行操作
+● 在Linux中，文件的访问不和Window的一样。window依靠的是通过盘符进行访问
+● Linux维护着一个树状结构的文件模型
+​	○ 只有一个根节点 ,他的名字叫做 /
+​	○ 一个节点上可以有多个子节点
+● 查找文件的方式
+​	○ 相对路径
+​	■ 以当前路径为基准点，查找其他资源
+​	■ vi ../etc/sysconfig/network
+​	○ 绝对路径" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhuangzetao.github.io/post/linuxbiji/" /><meta property="article:section" content="post" />
+
+
+
+<title>Linuxbiji | My New Hugo Site</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.6873dbe2112b18ab24adb37a84b2a8e5ea93e07f1452311005ecee0f9ec959f7.js" integrity="sha256-aHPb4hErGKskrbN6hLKo5eqT4H8UUjEQBezuD57JWfc=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>My New Hugo Site</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Linuxbiji</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1常用的命令">1.常用的命令</a></li>
+        <li><a href="#2万事万物皆文件">2.万事万物皆文件</a></li>
+        <li><a href="#3linux的文件操作">3.Linux的文件操作</a></li>
+        <li><a href="#4读取文件信息">4.读取文件信息</a></li>
+        <li><a href="#5-vi和vim编辑器">5. VI和vim编辑器</a></li>
+        <li><a href="#6文件大小">6.文件大小</a></li>
+        <li><a href="#7文件压缩">7.文件压缩</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-用户-组-权限">8. 用户-组-权限</a>
+      <ul>
+        <li><a href="#81-用户">8.1 用户</a></li>
+        <li><a href="#82-组">8.2 组</a></li>
+        <li><a href="#83-权限">8.3 权限</a></li>
+        <li><a href="#84-权限赋予">8.4 权限赋予</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-管道与重定向">9 管道与重定向</a>
+      <ul>
+        <li><a href="#91-管道">9.1 管道</a></li>
+        <li><a href="#92-重定向">9.2 重定向</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="linux笔记">
+  Linux笔记
+  <a class="anchor" href="#linux%e7%ac%94%e8%ae%b0">#</a>
+</h1>
+<h3 id="1常用的命令">
+  1.常用的命令
+  <a class="anchor" href="#1%e5%b8%b8%e7%94%a8%e7%9a%84%e5%91%bd%e4%bb%a4">#</a>
+</h3>
+<p>● whereis 查询命令文件的位置</p>
+<p>● file 查看文件的类型</p>
+<p>● who 查看当前在线的用户</p>
+<p>● whoami 我是谁</p>
+<p>● pwd 我在那</p>
+<p>● uname -a 查看内核信息</p>
+<p>● echo 类似于 sout syso ，打印语句</p>
+<p>● clear 清屏</p>
+<p>● history 历史</p>
+<h3 id="2万事万物皆文件">
+  2.万事万物皆文件
+  <a class="anchor" href="#2%e4%b8%87%e4%ba%8b%e4%b8%87%e7%89%a9%e7%9a%86%e6%96%87%e4%bb%b6">#</a>
+</h3>
+<p>● 文件系统：</p>
+<p>​	○ 操作系统如何管理文件，内部定义了一些规则或者定义</p>
+<p>● 所以在Linux中所有的东西都是以文件的方式进行操作</p>
+<p>● 在Linux中，文件的访问不和Window的一样。window依靠的是通过盘符进行访问</p>
+<p>● Linux维护着一个树状结构的文件模型</p>
+<p>​	○ 只有一个根节点 ,他的名字叫做 /</p>
+<p>​	○ 一个节点上可以有多个子节点</p>
+<p>● 查找文件的方式</p>
+<p>​	○ 相对路径</p>
+<p>​		■ 以当前路径为基准点，查找其他资源</p>
+<p>​		■ vi ../etc/sysconfig/network</p>
+<p>​	○ 绝对路径</p>
+<p>​		■ 以根目录为基准点，查找其他资源</p>
+<p>​		■ vi /etc/sysconfig/network-scripts/ifcfg-ens33</p>
+<p>​	○ 日常使用中，只要找到路径即可，但是如果是一些配置文件，尽量写绝对路径</p>
+<h3 id="3linux的文件操作">
+  3.Linux的文件操作
+  <a class="anchor" href="#3linux%e7%9a%84%e6%96%87%e4%bb%b6%e6%93%8d%e4%bd%9c">#</a>
+</h3>
+<ul>
+<li>
+<p>cd</p>
+<ul>
+<li>
+<pre><code>  改变当前工作目录
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>ls ll</p>
+<ul>
+<li>
+<p>显示出指定目录下所有的文件</p>
+</li>
+<li>
+<p>文件的类型</p>
+<ul>
+<li>
+<p>-普通文件</p>
+</li>
+<li>
+<p>d文件夹</p>
+</li>
+<li>
+<p>l软连接</p>
+</li>
+</ul>
+</li>
+<li>
+<p>-rw-r&ndash;r&ndash;. 1 root root 3384 Nov 11 23:51 install.log.syslog</p>
+</li>
+</ul>
+</li>
+<li>
+<p>mkdir</p>
+<ul>
+<li>
+<p>创建文件目录</p>
+</li>
+<li>
+<p>mkdir -p a/b/c/d/e/f 会自动创建文件父目录</p>
+</li>
+<li>
+<p>mkdir -p lucky/{1234}ls 一次可以创建多个子目录</p>
+</li>
+</ul>
+</li>
+<li>
+<p>rmdir</p>
+<ul>
+<li>
+<p>​	删除空文件夹</p>
+<ul>
+<li>rmdir: failed to remove ‘a1’: Directory not empty</li>
+<li>rmdir: failed to remove ‘baidu’: Not a directory</li>
+</ul>
+</li>
+<li>
+<p>可以安全的删除文件目录</p>
+</li>
+</ul>
+</li>
+<li>
+<p>cp</p>
+<ul>
+<li>
+<p>拷贝文件或者文件目录</p>
+</li>
+<li>
+<p>cp 源文件 目标目录</p>
+<ul>
+<li>cp abcd /opt</li>
+<li>cp /opt/abcd ./</li>
+</ul>
+</li>
+<li>
+<p>拷贝文件夹</p>
+<ul>
+<li>cp -r lucky /opt</li>
+<li>拷贝文件夹下所有的内容</li>
+<li>cp: omitting directory ‘/root/a1’</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>mv</p>
+<ul>
+<li>
+<p>移动文件或者文件夹</p>
+<ul>
+<li>
+<p>mv a1 /opt</p>
+</li>
+<li>
+<p>mv abc /opt</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>修改文件名称</p>
+<ul>
+<li>mv a abcd</li>
+</ul>
+</li>
+<li>
+<p>rm</p>
+<ul>
+<li>
+<p>删除文件</p>
+<ul>
+<li>
+<p>rm install.log</p>
+</li>
+<li>
+<p>rm -f install.log</p>
+</li>
+</ul>
+</li>
+<li>
+<p>删除文件夹</p>
+<ul>
+<li>
+<p>rm -r abcd</p>
+</li>
+<li>
+<p>rm -rf abcd 谨慎使用，从删库到跑路</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>touch</p>
+<ul>
+<li>
+<p>如果没有就创建一个文件</p>
+</li>
+<li>
+<p>如果该文件已经存在，修改文件的三个时间，将三个时间改为当前时间</p>
+</li>
+</ul>
+</li>
+<li>
+<p>stat</p>
+<ul>
+<li>
+<p>查看文件的状态</p>
+</li>
+<li>
+<p>Inode 当前文件在文件系统的唯一标识，类似于ID</p>
+</li>
+<li>
+<p>时间</p>
+<ul>
+<li>
+<p>access 访问时间</p>
+</li>
+<li>
+<p>modify 修改文件内容时间</p>
+</li>
+<li>
+<p>change 修改文件元数据信息时间</p>
+<ul>
+<li>
+<p>文件大小 ，文件所有者 ，文件权限</p>
+</li>
+<li>
+<p>对于文件的描述信息</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>ln</p>
+<ul>
+<li>
+<p>创建文件的链接</p>
+</li>
+<li>
+<p>软(符号)连接</p>
+<ul>
+<li>
+<p>ln -s lucky01 sl</p>
+</li>
+<li>
+<p>软连接和原始文件不是同一个文件</p>
+<ul>
+<li>
+<p>lucky1 131085</p>
+</li>
+<li>
+<p>sl 131074</p>
+</li>
+</ul>
+</li>
+<li>
+<p>rm -rf lucky1</p>
+</li>
+</ul>
+</li>
+<li>
+<p>硬链接</p>
+<ul>
+<li>
+<p>ln lucky02 hl</p>
+</li>
+<li>
+<p>硬链接和原始文件使用文件系统中的同一个文件</p>
+</li>
+<li>
+<p>如果你害怕一个文件被别人误删，你可以使用硬链接保护这个文件</p>
+</li>
+</ul>
+</li>
+<li>
+<p>软硬链接在链接文件的时候，推荐使用文件的绝对路径,否则有可能会出现问题</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4读取文件信息">
+  4.读取文件信息
+  <a class="anchor" href="#4%e8%af%bb%e5%8f%96%e6%96%87%e4%bb%b6%e4%bf%a1%e6%81%af">#</a>
+</h3>
+<ul>
+<li>
+<p>cat</p>
+<ul>
+<li>
+<p>将整个文档加载到内存中，并进行一次性显示</p>
+</li>
+<li>
+<p>除非后面使用管道，传递数据</p>
+</li>
+</ul>
+</li>
+<li>
+<p>tac</p>
+<ul>
+<li>将整个文档加载到内存中，并进行一次性按行逆序显示</li>
+</ul>
+</li>
+<li>
+<p>more less</p>
+<ul>
+<li>
+<p>分页查看文档内容</p>
+</li>
+<li>
+<p>快捷键</p>
+<ul>
+<li>
+<p>回车 下一行</p>
+</li>
+<li>
+<p>空格 下一页</p>
+</li>
+<li>
+<p>b 回退</p>
+</li>
+<li>
+<p>q 退出</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>head</p>
+<ul>
+<li>
+<p>​	从文章开始读取N行</p>
+</li>
+<li>
+<p>默认如果超过10行读取10行,否则读取现在行数</p>
+</li>
+<li>
+<p>head -5 profile</p>
+</li>
+</ul>
+</li>
+<li>
+<p>tail</p>
+<ul>
+<li>
+<p>从文章末尾读取N行</p>
+</li>
+<li>
+<p>head -3 profile | tail -1</p>
+<ul>
+<li>利用管道只读取第N</li>
+<li>行管道的作用就相当于把前面的结果以参数的方式传递给后面的命令</li>
+</ul>
+</li>
+<li>
+<p>读取新增数据</p>
+<ul>
+<li>
+<p>ping <a href="https://www.baidu.com">www.baidu.com</a> &raquo;baidu</p>
+</li>
+<li>
+<p>tail -F baidu</p>
+</li>
+<li>
+<p>如果f:</p>
+<ul>
+<li>
+<p>它会监听指定inode的文件数据变化，但是当文件被删除后</p>
+</li>
+<li>
+<p>即使创新创建，inode也会发生变化，于是监听失败</p>
+</li>
+</ul>
+</li>
+<li>
+<p>如果F</p>
+<ul>
+<li>
+<p>他会监听指定名字的文件,如果文件被删除后，重新创建</p>
+</li>
+<li>
+<p>他会重新监听新文件的数据变化，监听不受影响</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>find</p>
+<ul>
+<li>
+<p>查找指定的文件</p>
+</li>
+<li>
+<p>find 要查找的范围 -name 名字</p>
+</li>
+<li>
+<p>find /etc -name profile</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-vi和vim编辑器">
+  5. VI和vim编辑器
+  <a class="anchor" href="#5-vi%e5%92%8cvim%e7%bc%96%e8%be%91%e5%99%a8">#</a>
+</h3>
+<h4 id="51-打开文件">
+  5.1 打开文件
+  <a class="anchor" href="#51-%e6%89%93%e5%bc%80%e6%96%87%e4%bb%b6">#</a>
+</h4>
+<ul>
+<li>
+<p>正常打开</p>
+<ul>
+<li>vi profile</li>
+</ul>
+</li>
+<li>
+<p>打开文件，并将光标置于第8行</p>
+<ul>
+<li>vi +8 profile</li>
+</ul>
+</li>
+<li>
+<p>打开最后一行</p>
+<ul>
+<li>
+<p>vi + profile</p>
+</li>
+<li>
+<p>按n查找下一个，按N查找上一个</p>
+</li>
+</ul>
+</li>
+<li>
+<p>打开指定搜索单词的位置</p>
+<ul>
+<li>vi +/if profile</li>
+</ul>
+</li>
+</ul>
+<h4 id="52-三种模式">
+  5.2 三种模式
+  <a class="anchor" href="#52-%e4%b8%89%e7%a7%8d%e6%a8%a1%e5%bc%8f">#</a>
+</h4>
+<ul>
+<li>
+<p>编辑模式</p>
+<ul>
+<li>编辑模式中，每一个按键都有其他的功能</li>
+</ul>
+</li>
+<li>
+<p>输入模式</p>
+<ul>
+<li>每一个按键按下什么，就像文本中数据输入什么</li>
+</ul>
+</li>
+<li>
+<p>末行（命令行）模式</p>
+<ul>
+<li>我们可以直接在VI中输入特定的命令</li>
+</ul>
+</li>
+<li>
+<p>编辑模式&ndash;&gt;输入模式</p>
+<ul>
+<li>
+<p>i在当前位置插入数据</p>
+</li>
+<li>
+<p>a追加数据</p>
+</li>
+<li>
+<p>o在当前行后面开启一个新的输入行</p>
+</li>
+<li>
+<p>I 行首</p>
+</li>
+<li>
+<p>A 行尾</p>
+</li>
+<li>
+<p>O 上一行</p>
+</li>
+</ul>
+</li>
+<li>
+<p>输入模式&ndash;&gt;编辑模式</p>
+<ul>
+<li>按下ESC</li>
+</ul>
+</li>
+<li>
+<p>编辑模式&ndash;&gt;末行模式</p>
+<ul>
+<li>:</li>
+</ul>
+</li>
+<li>
+<p>末行模式&ndash;&gt;编辑模式</p>
+<ul>
+<li>按下ESC</li>
+</ul>
+</li>
+</ul>
+<h4 id="53编辑模式">
+  5.3编辑模式
+  <a class="anchor" href="#53%e7%bc%96%e8%be%91%e6%a8%a1%e5%bc%8f">#</a>
+</h4>
+<ul>
+<li>G最后一行</li>
+<li>gg 跳转到第一行</li>
+<li>数字gg 跳转到第数字行</li>
+<li>w 下个单词</li>
+<li>数字w</li>
+<li>dw 删除一个单词</li>
+<li>3dw 删除三个单词</li>
+<li>dd 删除一行</li>
+<li>3dd 删除三行</li>
+<li>u回退到前面的操作</li>
+<li>.回退u执行的操作</li>
+<li>yw 复制一个单词</li>
+<li>3yw 复制三个单词</li>
+<li>yy 复制一行</li>
+<li>3yy复制三行</li>
+<li>p粘贴</li>
+<li>6p 粘贴6次</li>
+<li>x 剪切</li>
+<li>3x 剪切三个字符r 替换，然后输入一个字符替换</li>
+<li>3r 替换三个</li>
+<li>hjkl 方向键</li>
+<li>ZZ 保存并退出</li>
+<li>ctrl+s 锁屏 ctrl+q 解锁</li>
+</ul>
+<h4 id="54-输入模式">
+  5.4 输入模式
+  <a class="anchor" href="#54-%e8%be%93%e5%85%a5%e6%a8%a1%e5%bc%8f">#</a>
+</h4>
+<ul>
+<li>按啥是啥</li>
+</ul>
+<h4 id="55-末行模式">
+  5.5 末行模式
+  <a class="anchor" href="#55-%e6%9c%ab%e8%a1%8c%e6%a8%a1%e5%bc%8f">#</a>
+</h4>
+<ul>
+<li>
+<p>set nu 设置行号</p>
+</li>
+<li>
+<p>set nonu 取消行号</p>
+</li>
+<li>
+<p>w 保存</p>
+</li>
+<li>
+<p>q 退出</p>
+</li>
+<li>
+<p>wq 保存并退出</p>
+</li>
+<li>
+<p>q!强制退出，但是不保存</p>
+</li>
+<li>
+<p>如果上次异常退出会保留同名隐藏文件，每次启动会给与提示</p>
+<ul>
+<li>如果确定当前文件没问题，请删除隐藏文件</li>
+</ul>
+</li>
+<li>
+<p>/pattern</p>
+<ul>
+<li>
+<p>搜索指定的字符串</p>
+</li>
+<li>
+<p>/usr n向下查找 N逆向查找</p>
+</li>
+</ul>
+</li>
+<li>
+<p>s/p1/p2/g</p>
+<ul>
+<li>
+<p>替换字符串</p>
+</li>
+<li>
+<p>g 替换当前行所有 否则只替换当前行第一个</p>
+<ul>
+<li>s/abc/lucky/g</li>
+</ul>
+</li>
+<li>
+<p>查找指定行</p>
+<ul>
+<li>3,8s/abc/lucky/g</li>
+</ul>
+</li>
+<li>
+<p>替换全文</p>
+<ul>
+<li>g/abc/s//lucky/g</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="6文件大小">
+  6.文件大小
+  <a class="anchor" href="#6%e6%96%87%e4%bb%b6%e5%a4%a7%e5%b0%8f">#</a>
+</h3>
+<ul>
+<li>
+<p>分区信息</p>
+<ul>
+<li>df -h</li>
+</ul>
+</li>
+<li>
+<p>指定文件目录大小</p>
+<ul>
+<li>du -h &ndash;max-depth=1 apache-tomcat-7.0.61</li>
+</ul>
+</li>
+<li>
+<p>swap</p>
+<ul>
+<li>一个特殊分区，以硬盘代替内存</li>
+<li>当内存使用满的时候，可以将一部分数据写出到swap分区</li>
+</ul>
+</li>
+</ul>
+<h3 id="7文件压缩">
+  7.文件压缩
+  <a class="anchor" href="#7%e6%96%87%e4%bb%b6%e5%8e%8b%e7%bc%a9">#</a>
+</h3>
+<h4 id="71-tar">
+  7.1 tar
+  <a class="anchor" href="#71-tar">#</a>
+</h4>
+<ul>
+<li>
+<p>主要针对的文件是 lucky.tar.gz</p>
+</li>
+<li>
+<p>解压缩</p>
+<ul>
+<li>tar -zx(解压)v(过程)f(文件) lucky.tar.gz</li>
+</ul>
+</li>
+<li>
+<p>压缩</p>
+<ul>
+<li>
+<p>tar -zc(压缩)f(文件) tomcat.tar.gz(压缩后的名字) apache-tomcat-7.0.61(源文件)</p>
+</li>
+<li>
+<p>tar -zxf tomcat.tar.gz -C /opt/</p>
+<ul>
+<li>-C 指定解压缩的文件目录</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="72-zip-和-unzip">
+  7.2 zip 和 unzip
+  <a class="anchor" href="#72-zip-%e5%92%8c-unzip">#</a>
+</h4>
+<ul>
+<li>安装
+<ul>
+<li>yum install zip unzip -y</li>
+</ul>
+</li>
+<li>压缩
+<ul>
+<li>zip -r tomcat.zip apache-tomcat-7.0.61</li>
+</ul>
+</li>
+<li>解压缩
+<ul>
+<li>unzip tomcat.zip</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-用户-组-权限">
+  8. 用户-组-权限
+  <a class="anchor" href="#8-%e7%94%a8%e6%88%b7-%e7%bb%84-%e6%9d%83%e9%99%90">#</a>
+</h2>
+<h3 id="81-用户">
+  8.1 用户
+  <a class="anchor" href="#81-%e7%94%a8%e6%88%b7">#</a>
+</h3>
+<ul>
+<li>
+<p>新增用户</p>
+<ul>
+<li>useradd luckyboy</li>
+<li>会创建同名的组和家目录</li>
+</ul>
+</li>
+<li>
+<p>设置密码</p>
+<ul>
+<li>passwd luckyboy</li>
+</ul>
+</li>
+<li>
+<p>删除用户</p>
+<ul>
+<li>userdel -r luckyboy</li>
+<li>级联删除家目录和组</li>
+</ul>
+</li>
+<li>
+<p>修改用户信息</p>
+<ul>
+<li>usermod -l luckyss luckyls 修改用户名
+<ul>
+<li>家目录和组名称是不会被修改的</li>
+</ul>
+</li>
+<li>usermod -L luckyss 锁定用户名</li>
+<li>usermod -U luckyss 解锁用户名</li>
+</ul>
+</li>
+<li>
+<p>常用文件</p>
+<ul>
+<li>cat /etc/shadow
+<ul>
+<li>用户名和密码</li>
+</ul>
+</li>
+<li>cat /etc/passwd
+<ul>
+<li>用户名，编号,组编号,家目录，命令，目录</li>
+<li>6.5系统0-499 普通 500+</li>
+<li>7.6系统0-999 普通 1000+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>切换账户</p>
+<ul>
+<li>su luckyboy</li>
+</ul>
+</li>
+</ul>
+<h3 id="82-组">
+  8.2 组
+  <a class="anchor" href="#82-%e7%bb%84">#</a>
+</h3>
+<ul>
+<li>创建组
+<ul>
+<li>groupadd lucky</li>
+</ul>
+</li>
+<li>删除组
+<ul>
+<li>groupdel lucky</li>
+</ul>
+</li>
+<li>修改组名字
+<ul>
+<li>groupmod -n school lucky</li>
+</ul>
+</li>
+<li>查看用户对应的组
+<ul>
+<li>groups</li>
+<li>groups schoolboy
+<ul>
+<li>当我们创建用户的时候，会默认创建一个同名的主组</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>修改用户的组
+<ul>
+<li>usermod -g lucky schoolboy (主组)</li>
+<li>usermod -G lucky schoolls (附属组)</li>
+</ul>
+</li>
+</ul>
+<h3 id="83-权限">
+  8.3 权限
+  <a class="anchor" href="#83-%e6%9d%83%e9%99%90">#</a>
+</h3>
+<p><img src="../../7.png" alt="image-20220828230001579" /></p>
+<ul>
+<li>查看文件的权限
+<ul>
+<li>drw-r-xr-x 9 n1 m1 4096 Nov 13 00:30 apache-tomcat-7.0.61</li>
+<li>三组权限，每组3个字母
+<ul>
+<li>r :读取权限</li>
+<li>w :写入权限</li>
+<li>x :执行权限</li>
+<li>-:没有权限</li>
+</ul>
+</li>
+<li>root :所属用户(属主)</li>
+<li>root：所属的组（属组）</li>
+</ul>
+</li>
+<li>权限的UGO模型
+<ul>
+<li>三组权限</li>
+<li>属主的权限：属组的权限：其他的权限</li>
+<li>所有说：将来修改文件的权限 可以从rwx和ugo两个方面进行修改</li>
+</ul>
+</li>
+<li>修改文件的权限
+<ul>
+<li>修改文件所属
+<ul>
+<li>chown n1 /var/lucky1</li>
+<li>chown n1:m1 /var/lucky2</li>
+<li>修改文件夹时，让子目录迭代修改
+<ul>
+<li>chown -R n1:m1 school</li>
+</ul>
+</li>
+<li>chgrp m2 lucky3
+<ul>
+<li>当用户的组被修改之后，需要重新登录才能获取新组的权限</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>修改文件的rwx
+<ul>
+<li>chmod o+w lucky4</li>
+<li>chmod ug+rw lucky4</li>
+<li>chmod ugo-rw lucky4</li>
+<li>（权限RWX分别对应数字 4 2 1 5= 4+0+1 r-x）</li>
+<li>chmod 664 lucky4 -&gt;(rw- rw-r&ndash;)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../6.png" alt="image-20220828230236135" /></p>
+<h3 id="84-权限赋予">
+  8.4 权限赋予
+  <a class="anchor" href="#84-%e6%9d%83%e9%99%90%e8%b5%8b%e4%ba%88">#</a>
+</h3>
+<ul>
+<li>我们可以将管理用的权限分配给普通用户</li>
+<li>文件位置在 vim /etc/sudoers</li>
+<li>但是修改这个文件需要使用命令
+<ul>
+<li>visudo</li>
+<li>修改 Line 99</li>
+<li>n1 ALL=(root) /sbin/useradd</li>
+<li>n1 ALL=(root) /sbin/*</li>
+</ul>
+</li>
+<li>如何使用
+<ul>
+<li>su n1</li>
+<li>sudo chkconfig iptables off</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-管道与重定向">
+  9 管道与重定向
+  <a class="anchor" href="#9-%e7%ae%a1%e9%81%93%e4%b8%8e%e9%87%8d%e5%ae%9a%e5%90%91">#</a>
+</h2>
+<h3 id="91-管道">
+  9.1 管道
+  <a class="anchor" href="#91-%e7%ae%a1%e9%81%93">#</a>
+</h3>
+<ul>
+<li>将前面命令的结果作为参数传递给后面的命令</li>
+<li>grep
+<ul>
+<li>强大的文本搜索工具</li>
+<li>cat profile | grep if</li>
+<li>ls / | grep ^t</li>
+</ul>
+</li>
+</ul>
+<h3 id="92-重定向">
+  9.2 重定向
+  <a class="anchor" href="#92-%e9%87%8d%e5%ae%9a%e5%90%91">#</a>
+</h3>
+<ul>
+<li>改变数据输出的位置，方向</li>
+<li>0 in 1 out 2 err
+<ul>
+<li>ls / 1&gt; lucky 标准输出</li>
+<li>ls / &gt; lucky 标准输出</li>
+<li>ls abcd 2&gt;lucky 错误输出</li>
+</ul>
+</li>
+<li>&gt; 替换 &raquo; 追加
+<ul>
+<li>ls / 1&raquo; lucky</li>
+<li>ls / 1&gt; lucky</li>
+</ul>
+</li>
+<li>结合使用
+<ul>
+<li>ls /etc /abc &gt; lucky 2&gt;&amp;1</li>
+<li>ls /etc /abc &raquo; lucky 2&gt;&amp;1</li>
+</ul>
+</li>
+<li>信息黑洞
+<ul>
+<li>ls /etc /abc &raquo; /dev/null 2&gt;&amp;1</li>
+</ul>
+</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1常用的命令">1.常用的命令</a></li>
+        <li><a href="#2万事万物皆文件">2.万事万物皆文件</a></li>
+        <li><a href="#3linux的文件操作">3.Linux的文件操作</a></li>
+        <li><a href="#4读取文件信息">4.读取文件信息</a></li>
+        <li><a href="#5-vi和vim编辑器">5. VI和vim编辑器</a></li>
+        <li><a href="#6文件大小">6.文件大小</a></li>
+        <li><a href="#7文件压缩">7.文件压缩</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-用户-组-权限">8. 用户-组-权限</a>
+      <ul>
+        <li><a href="#81-用户">8.1 用户</a></li>
+        <li><a href="#82-组">8.2 组</a></li>
+        <li><a href="#83-权限">8.3 权限</a></li>
+        <li><a href="#84-权限赋予">8.4 权限赋予</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-管道与重定向">9 管道与重定向</a>
+      <ul>
+        <li><a href="#91-管道">9.1 管道</a></li>
+        <li><a href="#92-重定向">9.2 重定向</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

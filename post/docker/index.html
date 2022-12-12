@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="docker安装 # # 1、yum 包更新到最新 yum update# 2、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的 yum install -y yum-utils device-mapper-persistent-data lvm2# 3、 设置yum源yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo# 4、 安装docker，出现输入的界面都按 y yum install -y docker-ce# 5、 查看docker版本，验证是否验证成功docker -v 创建容器并使用数据卷挂载文件
+1.容器c1docker run -it --name=c1 -v root/data:/root/data centos:72.容器c2docker run -it --name=c1 -v root/data:/root/data centos:7 查看容器状态
+docker ps -a 启动容器
+docker start c1docker start c2 进入到容器
+docker exec -it c1 /bin/bashdocker exec -it c2 /bin/bash 查看容器ip">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="docker安装 # # 1、yum 包更新到最新 yum update# 2、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的 yum install -y yum-utils device-mapper-persistent-data lvm2# 3、 设置yum源yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo# 4、 安装docker，出现输入的界面都按 y yum install -y docker-ce# 5、 查看docker版本，验证是否验证成功docker -v 创建容器并使用数据卷挂载文件
+1.容器c1docker run -it --name=c1 -v root/data:/root/data centos:72.容器c2docker run -it --name=c1 -v root/data:/root/data centos:7 查看容器状态
+docker ps -a 启动容器
+docker start c1docker start c2 进入到容器
+docker exec -it c1 /bin/bashdocker exec -it c2 /bin/bash 查看容器ip" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zhuangzetao.github.io/post/docker/" /><meta property="article:section" content="post" />
+
+
+
+<title>Docker | My New Hugo Site</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.c58292d36b18b675680ab9baea2029204537b839ea72f258746ec0f32ce8d6c8.css" integrity="sha256-xYKS02sYtnVoCrm66iApIEU3uDnqcvJYdG7A8yzo1sg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.6873dbe2112b18ab24adb37a84b2a8e5ea93e07f1452311005ecee0f9ec959f7.js" integrity="sha256-aHPb4hErGKskrbN6hLKo5eqT4H8UUjEQBezuD57JWfc=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>My New Hugo Site</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Docker</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents"></nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="docker安装">
+  docker安装
+  <a class="anchor" href="#docker%e5%ae%89%e8%a3%85">#</a>
+</h1>
+<pre tabindex="0"><code># 1、yum 包更新到最新 
+yum update
+# 2、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的 
+yum install -y yum-utils device-mapper-persistent-data lvm2
+# 3、 设置yum源
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+# 4、 安装docker，出现输入的界面都按 y 
+yum install -y docker-ce
+# 5、 查看docker版本，验证是否验证成功
+docker -v
+</code></pre><p><strong>创建容器并使用数据卷挂载文件</strong></p>
+<pre tabindex="0"><code>1.容器c1
+docker run -it --name=c1 -v root/data:/root/data centos:7
+2.容器c2
+docker run -it --name=c1 -v root/data:/root/data centos:7
+</code></pre><p><strong>查看容器状态</strong></p>
+<pre tabindex="0"><code>docker ps -a
+</code></pre><p><img src="../../8.png" alt="image-20221212174926470" /></p>
+<p><strong>启动容器</strong></p>
+<pre tabindex="0"><code>docker start c1
+docker start c2
+</code></pre><p><img src="../../9.png" alt="image-20221212175016630" /></p>
+<p><strong>进入到容器</strong></p>
+<pre tabindex="0"><code>docker exec -it c1 /bin/bash
+docker exec -it c2 /bin/bash
+</code></pre><p><img src="../../10.png" alt="image-20221212175108479" /></p>
+<p><img src="../../11.png" alt="image-20221212175125347" /></p>
+<p><strong>查看容器ip</strong></p>
+<pre tabindex="0"><code>docker inspect --format=&#39;{{.NetworkSettings.IPAddress}}&#39; c1
+</code></pre><p><img src="../../12.png" alt="image-20221212175238164" /></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents"></nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>https://zhuangzetao.github.io/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Dec 2022 00:03:53 +0800</lastBuildDate><atom:link href="https://zhuangzetao.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First</title>
+      <link>https://zhuangzetao.github.io/post/first/</link>
+      <pubDate>Wed, 07 Dec 2022 00:03:53 +0800</pubDate>
+      
+      <guid>https://zhuangzetao.github.io/post/first/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zhuangzetao.github.io/post/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zhuangzetao.github.io/post/docker/</guid>
+      <description>docker安装 # # 1、yum 包更新到最新 yum update# 2、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的 yum install -y yum-utils device-mapper-persistent-data lvm2# 3、 设置yum源yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo# 4、 安装docker，出现输入的界面都按 y yum install -y docker-ce# 5、 查看docker版本，验证是否验证成功docker -v 创建容器并使用数据卷挂载文件
+1.容器c1docker run -it --name=c1 -v root/data:/root/data centos:72.容器c2docker run -it --name=c1 -v root/data:/root/data centos:7 查看容器状态
+docker ps -a 启动容器
+docker start c1docker start c2 进入到容器
+docker exec -it c1 /bin/bashdocker exec -it c2 /bin/bash 查看容器ip</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zhuangzetao.github.io/post/hugo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zhuangzetao.github.io/post/hugo/</guid>
+      <description>hugo搭建 # 创建网站
+hugo new site fhugocd fhugogit init#拉取主题git submodule add https://github.com/tohn/linkshrubbery.git themes/linkshrubbery 添加内容
+hugo new post/first.md 本地启动个人博客
+hugo server -t hugo-book-master --buildDrafts 将个人博客部署到远端服务器
+创建GitHub仓库
+cd /fhugohugo --theme=hugo-book-master --baseUrl=&amp;#34;https://zhuangzetao.github.io/&amp;#34; --buildDraftscd public/git initgit add .（git remote add origin https://github.com/zhuangzetao/zhuangzetao.github.io.git）git remote set-url origin https://ghp_NL1lA176SkVdA0nusKKBNkASS2wItk2eQDR1@github.com/zhuangzetao/zhuangzetao.github.io.git[root@Centos public]# git push -u origin mastergit commit -m &amp;#34;我的hugo&amp;#34;git push -u origin master 使用Nginx服务器部署</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://zhuangzetao.github.io/post/linuxbiji/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://zhuangzetao.github.io/post/linuxbiji/</guid>
+      <description>Linux笔记 # 1.常用的命令 # ● whereis 查询命令文件的位置
+● file 查看文件的类型
+● who 查看当前在线的用户
+● whoami 我是谁
+● pwd 我在那
+● uname -a 查看内核信息
+● echo 类似于 sout syso ，打印语句
+● clear 清屏
+● history 历史
+2.万事万物皆文件 # ● 文件系统：
+​	○ 操作系统如何管理文件，内部定义了一些规则或者定义
+● 所以在Linux中所有的东西都是以文件的方式进行操作
+● 在Linux中，文件的访问不和Window的一样。window依靠的是通过盘符进行访问
+● Linux维护着一个树状结构的文件模型
+​	○ 只有一个根节点 ,他的名字叫做 /
+​	○ 一个节点上可以有多个子节点
+● 查找文件的方式
+​	○ 相对路径
+​	■ 以当前路径为基准点，查找其他资源
+​	■ vi ../etc/sysconfig/network
+​	○ 绝对路径</description>
+    </item>
+    
+  </channel>
+</rss>
